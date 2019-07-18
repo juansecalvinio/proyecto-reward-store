@@ -4,5 +4,5 @@ import { Layout } from 'antd'
 const { Header } = Layout;
 
 export const StyledHeader = styled(Header)`
-    color: #ffffff;
+    color: rgb(2,0,36);
 `;
