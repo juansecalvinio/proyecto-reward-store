@@ -4,6 +4,9 @@ import { Provider } from 'react-redux';
 import { createGlobalStyle } from 'styled-components';
 
 import Layout from '../Layout';
+import Home from './../../pages/Home';
+import ProductDetail from './../../pages/ProductDetail';
+import store from './../../store';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,12 +21,17 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   render() {
     return (
-      // <Provider>
+      <Provider store={store}>
         <Router>
           <GlobalStyle />
-          <Layout></Layout>
+          <Layout>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/product/:id" component={ProductDetail} />
+            </Switch>
+          </Layout>
         </Router>
-      /* </Provider> */
+      </Provider>
     )
   }  
 }

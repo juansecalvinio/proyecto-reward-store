@@ -4,7 +4,7 @@ import { StyledHeader } from './styled';
 const Header = () => {
     return (
         <StyledHeader>
-            Header
+            Reward Store
         </StyledHeader>
     )
 }
