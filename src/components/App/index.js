@@ -23,13 +23,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <GlobalStyle />
-          <Layout>
+            <GlobalStyle />
+            <Layout />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/product/:id" component={ProductDetail} />
-            </Switch>
-          </Layout>
+            </Switch>          
         </Router>
       </Provider>
     )

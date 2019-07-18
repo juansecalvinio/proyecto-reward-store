@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { Layout } from 'antd'
 
-const { Header } = Layout;
-
-export const StyledHeader = styled(Header)`
+export const StyledHeader = styled.div`
     color: rgb(2,0,36);
 `;

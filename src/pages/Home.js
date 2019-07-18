@@ -1,11 +1,13 @@
 import React from 'react';
-import { Typography } from 'antd';
-
-const { Title } = Typography;
+import Product from '../components/Product';
 
 const Home = () => {
     return (
-        <Title>Home</Title>
+        <div>
+            <h1>Home</h1>
+            <Product />
+        </div>
+        
     )
 }
 
