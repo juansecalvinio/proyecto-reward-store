@@ -1,13 +1,17 @@
-import React from 'react';
+import React from 'react'
 import { StyledLayout } from './styled';
-import Header from './Header';
+
+import Header from './Hero/Header';
+import Hero from './Hero';
+import Sorter from './Sorter';
 
 const Layout = () => {
     return (
         <StyledLayout>
-            <Header></Header>
+            <Hero />
+            <Sorter />
         </StyledLayout>
     )
 }
 
-export default Layout
+export default Layout;
