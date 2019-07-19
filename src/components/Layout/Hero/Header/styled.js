@@ -6,5 +6,5 @@ export const StyledHeader = styled.header`
     background: transparent;
     height: 80px;
     justify-content: flex-start;
-    padding: 0 5vw;
+    margin: 0 2em;
 `;
