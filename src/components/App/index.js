@@ -33,7 +33,7 @@ class App extends Component {
         </Router>
       </Provider>
     )
-  }  
+  }
 }
 
 export default App;

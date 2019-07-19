@@ -11,6 +11,7 @@ class Home extends Component {
     componentDidMount() {
         const { getProductsItems } = this.props;
         getProductsItems();
+        console.log('Se montó Home');
     }
 
 
@@ -23,7 +24,7 @@ class Home extends Component {
                 {productsItems.length > 0 && productsItems.map((product) => (
                     <Card product={product} key={product._id} />
                 ))}
-            </Container>                 
+            </Container>               
         )
     }
 }
