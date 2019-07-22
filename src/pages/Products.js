@@ -1,24 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+
+import Container from '../components/Container';
+import { getProductsRequest } from '../store';
 
 class Products extends Component {
 
-    state = {
-        product: null,
-        error: null,
-        isLoading: false,
+    componentDidMount() {
+        const { getProductItems } = this.props;
+        getProductItems();
+        console.log('Se montó Products');
     }
 
-    // componentDidMount() {
-
-    // }
-
     render() {
+        const { productItems, loading, error } = this.props;
+
         return (
-            <div>
-                
-            </div>
+            <Container data={productItems} loading={loading} error={error} />            
         )
     }
 }
 
-export default Products
+const mapStateToProps = state => {
+    return {
+        productItems: state.products,
+        loading: state.loading,
+        error: state.error,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getProductItems: () => dispatch(getProductsRequest()),
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Products);

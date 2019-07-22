@@ -6,8 +6,6 @@ const INITIAL_STATE = {
     error: null,
     loading: false,
     products: [],
-    redeem: false,
-    user: ''
 }
 
 function productsReducer(state = INITIAL_STATE, action) {

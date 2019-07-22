@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createGlobalStyle } from 'styled-components';
 
 import Layout from './../Layout';
-import Home from './../../pages/Home';
+import Products from '../../pages/Products';
 import ProductDetail from './../../pages/ProductDetail';
 import store from './../../store';
 
@@ -23,12 +23,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
             <GlobalStyle />
-            <Layout>
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/product/:id" component={ProductDetail} />
-              </Switch>
-            </Layout>
+            <Layout/>
+            <Switch>
+              {/* <Route path="/" exact component={Products} /> */}
+              <Route path="/data" component={Products} />
+              <Route path="/product/:id" component={ProductDetail} />
+            </Switch>
         </Router>
       </Provider>
     )
