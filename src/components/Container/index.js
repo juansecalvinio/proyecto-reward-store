@@ -15,7 +15,7 @@ class Container extends Component {
             <StyledContainer>
                 {loading && <p>Cargando...</p>}
                 {error && <p>Ocurrió un error con la carga de datos: {error}</p>}
-                {data.length > 0 && data.map(product => <Product data={product} key={product._id}></Product>)}
+                {data.length > 0 && data.slice(0, 10).map(product => <Product data={product} key={product._id}></Product>)}
             </StyledContainer>
         )
     }    

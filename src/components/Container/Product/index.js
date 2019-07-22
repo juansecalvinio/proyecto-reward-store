@@ -11,15 +11,15 @@ import {
 
 class Product extends Component {
     render() {
-        const { product } = this.props;
+        const { data } = this.props;
         return (
             <StyledProductWrapper>
                 <StyledProductImg>
-                    <img src={product.img.url} alt={product.name} />>
+                    <img src={data.img.url} alt={data.name} />>
                 </StyledProductImg>
                 <StyledProductText>
-                    <StyledProductCategory>{product.category}</StyledProductCategory>
-                    <StyledProductName>{product.name}</StyledProductName>
+                    <StyledProductCategory>{data.category}</StyledProductCategory>
+                    <StyledProductName>{data.name}</StyledProductName>
                 </StyledProductText>
             </StyledProductWrapper>
         )
