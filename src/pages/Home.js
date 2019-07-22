@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
-const Home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-        
-    )
+import Container from './../components/Container';
+
+class Home extends Component {
+
+
+
+
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
 }
 
-export default Home
+export default Home;
