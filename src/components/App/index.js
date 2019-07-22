@@ -23,13 +23,21 @@ class App extends Component {
       <Provider store={store}>
         <Router>
             <GlobalStyle />
+<<<<<<< HEAD
             <div>
               <Layout />
+=======
+            <Layout>
+>>>>>>> 74e6f896c26ddacd6fc42b852e610042df55602c
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/product/:id" component={ProductDetail} />
               </Switch>
+<<<<<<< HEAD
             </div>            
+=======
+            </Layout>
+>>>>>>> 74e6f896c26ddacd6fc42b852e610042df55602c
         </Router>
       </Provider>
     )

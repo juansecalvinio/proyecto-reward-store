@@ -1,9 +1,13 @@
-import React from 'react';
+import React from 'react'
 import { StyledContainer } from './styled';
 
-const Container = () => {
+import Product from './Product';
+
+const Container = ({ data }) => {
     return (
-        <StyledContainer></StyledContainer>
+        <StyledContainer>
+            {data.map(product => <Product data={product} key={product._id}></Product> )}
+        </StyledContainer>
     )
 }
 

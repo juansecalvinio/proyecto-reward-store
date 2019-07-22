@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { connect } from 'react-redux';
 
 import Container from './../components/Container';
@@ -44,3 +45,24 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
+=======
+import { connect } from 'react-redux'
+
+import Container from './../components/Container';
+
+class Home extends Component {
+
+
+
+
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
+}
+
+export default Home;
+>>>>>>> 74e6f896c26ddacd6fc42b852e610042df55602c
