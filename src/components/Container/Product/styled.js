@@ -6,19 +6,19 @@ export const StyledProductWrapper = styled.div`
     box-shadow: -1px 2px 7px 0px #00000014;
     cursor: pointer;
     display: flex;
-    margin: auto;
-    margin-top: 0;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
     padding: 1em;
-    position: relative;
+    text-align: left;
     transition: 0.3s ease box-shadow,0.3s ease transform;
-    width: 100%;
 `;
 
 export const StyledProductImg = styled.div`
     align-items: center;
     border: none;
-    border-bottom: 1px solid #D9D9D9;
-    border-right: 1px solid #D9D9D9;
     display: flex;
     height: 190px;
     justify-content: center;
@@ -26,6 +26,7 @@ export const StyledProductImg = styled.div`
 
     img {
         height: 100%;
+        margin: 0 auto;
         min-height: 80px;
         object-fit: contain;
         width: 100%;

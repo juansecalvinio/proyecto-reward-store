@@ -15,7 +15,7 @@ class Product extends Component {
         return (
             <StyledProductWrapper>
                 <StyledProductImg>
-                    <img src={data.img.url} alt={data.name} />>
+                    <img src={data.img.url} alt={data.name} />
                 </StyledProductImg>
                 <StyledProductText>
                     <StyledProductCategory>{data.category}</StyledProductCategory>
