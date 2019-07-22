@@ -7,9 +7,9 @@ import { getProductsRequest } from '../store';
 class Products extends Component {
 
     componentDidMount() {
-        const { getProductItems } = this.props;
-        getProductItems();
         console.log('Se montó Products');
+        const { getProductItems } = this.props;
+        getProductItems();        
     }
 
     render() {
