@@ -39,7 +39,7 @@ export const StyledUserName = styled.span`
         position: absolute;
         width: 100%;
         height: 1.5px;
-        background: #FFFFFF;
+        background: #ffffff;
         bottom: -2px;
         left: 0;
     }
@@ -49,7 +49,7 @@ export const StyledUserPoints = styled.div`
     align-items: center;
     background: rgb(204, 204, 204, 0.5);
     border-radius: 50px;
-    color: #fff;
+    color: #ffffff;
     display: flex;
     font-weight: 700;
     justify-content: center;

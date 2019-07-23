@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 
 import { 
     StyledUserInfoWrapper, 
@@ -20,14 +21,15 @@ class User extends Component {
     }
 
     render() {
-        const { user } = this.props;
+        const { user, loading } = this.props;
         return (
             <StyledUserInfoWrapper>
                 <StyledUserName>{user.name}</StyledUserName>
                 <StyledUserPoints>
+                    {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
                     {user.points}
                     <img src={coin} alt="coin" />
-                </StyledUserPoints>                
+                </StyledUserPoints>
             </StyledUserInfoWrapper>
         )
     }    
@@ -36,6 +38,7 @@ class User extends Component {
 const mapStateToProps = state => {
     return {
         user: state.user,
+        loading: state.loading,
     }
 }
 

@@ -108,7 +108,7 @@ const addPointsRequest = (amount) => {
             const user = await api.addPoints(amount);
             dispatch(fetchUserSuccess(user))
         } catch (error) {
-            
+            dispatch(fecthFailure(error));
         }
     }
 }
