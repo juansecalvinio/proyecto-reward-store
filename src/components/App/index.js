@@ -25,8 +25,7 @@ class App extends Component {
             <GlobalStyle />
             <Layout/>
             <Switch>
-              {/* <Route path="/" exact component={Products} /> */}
-              <Route path="/data" component={Products} />
+              <Route path="/" exact component={Products} />
               <Route path="/product/:id" component={ProductDetail} />
             </Switch>
         </Router>

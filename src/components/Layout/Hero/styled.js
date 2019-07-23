@@ -18,7 +18,7 @@ export const StyledHero = styled.div`
 `;
 
 export const StyledHeroTitle = styled.div`
-    color: #FFFFFF;
+    color: #fff;
     font-size: 4em;
     font-weight: bold;
     letter-spacing: -4px;

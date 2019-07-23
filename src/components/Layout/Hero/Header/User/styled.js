@@ -49,7 +49,7 @@ export const StyledUserPoints = styled.div`
     align-items: center;
     background: rgb(204, 204, 204, 0.5);
     border-radius: 50px;
-    color: #FFFFFF;
+    color: #fff;
     display: flex;
     font-weight: 700;
     justify-content: center;
