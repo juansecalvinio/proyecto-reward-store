@@ -50,6 +50,7 @@ export const StyledUserPoints = styled.div`
     background: rgb(204, 204, 204, 0.5);
     border-radius: 50px;
     color: #ffffff;
+    cursor: pointer;
     display: flex;
     font-weight: 700;
     justify-content: center;

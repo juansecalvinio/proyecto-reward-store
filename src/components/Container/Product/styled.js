@@ -30,7 +30,7 @@ export const StyledProductWrapper = styled.div`
 
 export const StyledProductPoints = styled.div`
     align-items: center;
-    background: rgb(21, 219, 255, 0.5);
+    background: rgb(21, 219, 255, 0.4);
     border: 1px solid rgba(21, 219, 255, 0.2);
     border-radius: 50px;
     color: #fff;
