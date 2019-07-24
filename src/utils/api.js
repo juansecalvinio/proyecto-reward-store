@@ -50,6 +50,22 @@ const api = {
 
     return products
   },
+  getProductsHigherPrice: (products) => {
+    const productsSortered = products.sort((a, b) => {
+      if(a.cost < b.cost) return -1; 
+      if(a.cost > b.cost) return 1;
+      return 0;
+    })
+    return productsSortered;
+  },
+  getProductsLowerPrice: (products) => {
+    const productsSortered = products.sort((a, b) => {
+      if(a.cost > b.cost) return -1; 
+      if(a.cost < b.cost) return 1;
+      return 0;
+    })
+    return productsSortered;
+  }
 }
 
 export default api

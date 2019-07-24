@@ -9,6 +9,8 @@ const INITIAL_STATE = {
     user: {},
     history: [],
     points: '',
+    highestActive: false,
+    lowestActive: false,
 }
 
 function appReducer(state = INITIAL_STATE, action) {
@@ -56,6 +58,22 @@ function appReducer(state = INITIAL_STATE, action) {
                 ...state,
                 history,
                 loading: false,
+            }
+        }
+
+        case 'ACTIVE_SORTER_HIGHEST': {
+            return {
+                ...state,
+                highestActive: true,
+                lowestActive: false,
+            }
+        }
+
+        case 'ACTIVE_SORTER_LOWEST': {
+            return {
+                ...state,
+                highestActive: false,
+                lowestActive: true,
             }
         }
     }
@@ -113,6 +131,26 @@ const addPointsRequest = (amount) => {
     }
 }
 
+const activeHighest = () => {
+    return function(dispatch) {
+        try {
+            dispatch(activeSorterHighest());
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
+const activeLowest = () => {
+    return function(dispatch) {
+        try {
+            dispatch(activeSorterLowest());
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
 // ACTION CREATORS
 const fecthRequest = () => {
     return {
@@ -148,8 +186,27 @@ const fetchHistorySuccess = history => {
     }
 }
 
+const activeSorterHighest = () => {
+    return {
+        type: 'ACTIVE_SORTER_HIGHEST',
+    }
+}
+
+const activeSorterLowest = () => {
+    return {
+        type: 'ACTIVE_SORTER_LOWEST',
+    }
+}
+
 // MIDDLEWARE
 const middlewares = applyMiddleware(thunk);
 const store = createStore(appReducer, middlewares);
 
-export { store as default, getProductsRequest, getUserRequest, getHistoryRequest, addPointsRequest };
+export { store as default, 
+    getProductsRequest,
+    getUserRequest,
+    getHistoryRequest,
+    addPointsRequest,
+    activeHighest,
+    activeLowest,
+};
