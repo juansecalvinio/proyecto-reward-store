@@ -13,7 +13,7 @@ class Container extends Component {
         const { data, loading, error } = this.props;
         return (
             <StyledContainer>
-                {loading && <p>Cargando...</p>}
+                {loading && data.length === 0 && <p>Cargando...</p>}
                 {error && <p>Ocurrió un error con la carga de datos: {error}</p>}
                 {data.length > 0 && data.slice(0, 10).map(product => <Product data={product} key={product._id}></Product>)}
             </StyledContainer>

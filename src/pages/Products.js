@@ -8,8 +8,14 @@ class Products extends Component {
 
     componentDidMount() {
         console.log('Se montó Products');
-        const { getProductItems } = this.props;
-        getProductItems();        
+        const { getProductItems, highestActive, lowestActive } = this.props;
+        if(!highestActive && !lowestActive) getProductItems();
+    }
+
+    sorterProducts = () => {
+        const { productsItems, highestActive, lowestActive, getSorteredHighest, getSorteredLowest } = this.props;
+        if(highestActive) getSorteredHighest(productsItems);
+        if(lowestActive) getSorteredLowest(productsItems);
     }
 
     render() {
@@ -26,6 +32,8 @@ const mapStateToProps = state => {
         productItems: state.products,
         loading: state.loading,
         error: state.error,
+        highestActive: state.highestActive,
+        lowestActive: state.lowestActive,
     }
 }
 

@@ -11,6 +11,7 @@ const INITIAL_STATE = {
     points: '',
     highestActive: false,
     lowestActive: false,
+    allActive: true,
 }
 
 function appReducer(state = INITIAL_STATE, action) {
@@ -66,6 +67,7 @@ function appReducer(state = INITIAL_STATE, action) {
                 ...state,
                 highestActive: true,
                 lowestActive: false,
+                allActive: false,
             }
         }
 
@@ -74,6 +76,16 @@ function appReducer(state = INITIAL_STATE, action) {
                 ...state,
                 highestActive: false,
                 lowestActive: true,
+                allActive: false,
+            }
+        }
+
+        case 'ACTIVE_ALL': {
+            return {
+                ...state,
+                highestActive: false,
+                lowestActive: false,
+                allActive: true,
             }
         }
     }
@@ -151,6 +163,38 @@ const activeLowest = () => {
     }
 }
 
+const activeAll = () => {
+    return function(dispatch) {
+        try {
+            dispatch(activeSorterAll());
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
+const sorterProductsHighest = (products) => {
+    return function(dispatch) {
+        try {
+            const productsSortered = api.getProductsHigherPrice(products);
+            dispatch(fecthProductsSuccess(productsSortered));
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
+const sorterProductsLowest = (products) => {
+    return function(dispatch) {
+        try {
+            const productsSortered = api.getProductsLowerPrice(products);
+            dispatch(fecthProductsSuccess(productsSortered));
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
 // ACTION CREATORS
 const fecthRequest = () => {
     return {
@@ -198,6 +242,12 @@ const activeSorterLowest = () => {
     }
 }
 
+const activeSorterAll = () => {
+    return {
+        type: 'ACTIVE_ALL',
+    }
+}
+
 // MIDDLEWARE
 const middlewares = applyMiddleware(thunk);
 const store = createStore(appReducer, middlewares);
@@ -209,4 +259,7 @@ export { store as default,
     addPointsRequest,
     activeHighest,
     activeLowest,
+    activeAll,
+    sorterProductsHighest,
+    sorterProductsLowest,
 };
