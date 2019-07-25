@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import coin from '../../../img/icons/coin.svg';
+import close from '../../../img/icons/close.svg';
+
+import { connect } from 'react-redux';
+import { selectProduct, deselectProduct } from './../../../store';
 
 import { 
     StyledProductWrapper, 
@@ -11,15 +15,61 @@ import {
     StyledProductPoints,
     SpanPoints,
     DivImgCoin,
+    OverlayWrapper,
+    OverlayClose,
+    OverlayBalance,
+    OverlayBalanceContent,
+    OverlayRedeemButton,
 } from './styled';
 
+import { StyledCoin } from './../../Layout/Hero/Header/User/styled'
 
 class Product extends Component {
+    
+    state = {
+        selected: false,
+    }
+
+    handleProductClick = (event) => {
+        const { selected } = this.state;
+        // Verifico que el click sea dentro del componente
+        if(this.node.contains(event.target)) {
+            if(selected === true) {
+                this.setState({ selected: false });
+            } else if(selected === false) {
+                this.setState({ selected: true });
+            }
+        }
+    }
+
+    handleCloseClick = (event) => {
+        this.setState({ selected: false })
+    }
+
     render() {
-        const { data } = this.props;
+        const { data, user } = this.props;
+        const { selected } = this.state;
         return (
-            <StyledProductWrapper>
-                {(data.cost &&
+            <StyledProductWrapper ref={ node => this.node = node } className={selected ? "selected" : ""} onClick={this.handleProductClick}>
+                {selected && 
+                    <OverlayWrapper>
+                        <OverlayClose onClick={this.handleCloseClick}>
+                            <img scr={close} alt='close' />
+                        </OverlayClose>
+                        <OverlayBalance>
+                            <OverlayBalanceContent>
+                                <span className="current">{user.points}</span>
+                                <span className="cost">{`- ${data.cost}`}</span>
+                                <hr/>
+                                <div className="final">
+                                    <span>{(user.points - data.cost)}</span>
+                                    <StyledCoin />
+                                </div>                
+                            </OverlayBalanceContent>
+                        </OverlayBalance>
+                    </OverlayWrapper>
+                }
+                {(data.cost && 
                 <StyledProductPoints>
                     <SpanPoints>{data.cost}</SpanPoints>
                     <DivImgCoin>
@@ -39,4 +89,12 @@ class Product extends Component {
     }
 }
 
-export default Product;
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+)(Product);

@@ -26,11 +26,22 @@ export const StyledProductWrapper = styled.div`
         border-top: 1px solid #e9ebf1;
         margin: 5px 0 10px 0;
     }
+
+    &:hover {
+        border: 1px solid rgba(21, 219, 255, .5);
+        transform: scale(1.025);
+    }
+
+    &.selected {
+        box-shadow: 0 0 40px rgba(0,0,0,.4);
+        transform: scale(1.1);
+        border: 0;
+    }
 `;
 
 export const StyledProductPoints = styled.div`
     align-items: center;
-    background: rgb(21, 219, 255, 0.9);
+    background: rgba(21, 219, 255, 0.9);
     border: 1px solid rgba(21, 219, 255, 0.2);
     border-radius: 50px;
     color: #fff;
@@ -89,4 +100,90 @@ export const StyledProductCategory = styled.span`
 export const StyledProductName = styled.span`
     color: #616161;
     font-size: 1.2em;
+`;
+
+export const OverlayWrapper = styled.div`
+    align-items: center;
+    background-color: hsla(0,0%,64%,.9);
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    perspective: 500px;
+    transition: all .25s;
+    width: 100%;
+    z-index: 3;
+    pointer-events: all;
+
+    .enabled {
+        background-color: rgba(21, 219, 255, 0.9);
+    }
+
+    .selected {
+        opacity: 1;
+        pointer-events: all;
+    }
+`;
+
+export const OverlayClose = styled.div`
+    transition: all .25s;
+    position: absolute;
+    right: 15px;
+    top: 13.5px;
+    width: 15px;
+    height: 15px;
+    opacity: .8;
+`;
+
+export const OverlayBalance = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+`;
+
+export const OverlayBalanceContent = styled.div`
+    align-items: center;
+    color: #fff;
+    display: flex;
+    font-weight: 600;
+    font-size: 24px;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+
+    hr {
+        border-top: 1px solid #fff;
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    div {
+        align-items: center;
+        display: flex;
+    }
+`;
+
+export const OverlayRedeemButton = styled.div`
+    align-items: center;
+    background-color: #fff;
+    border-radius: 100px;
+    color: rgba(21, 219, 255, 0.9);
+    cursor: pointer;
+    display: flex;
+    font-size: 20px;    
+    font-weight: 600;
+    justify-content: center;
+    padding: 5 12px;
+    transition: all .25s;
+    text-align: center;
+    user-select: none;
+    transition: all .25s;
 `;

@@ -5,7 +5,8 @@ import Loader from 'react-loader-spinner';
 import { 
     StyledUserInfoWrapper, 
     StyledUserName, 
-    StyledUserPoints 
+    StyledUserPoints,
+    StyledCoin
 } from './styled';
 
 import coin from './../../../../../img/icons/coin.svg';
@@ -28,7 +29,7 @@ class User extends Component {
                 <StyledUserPoints>
                     {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
                     {user.points}
-                    <img src={coin} alt="coin" />
+                    <StyledCoin src={coin} alt="coin" />
                 </StyledUserPoints>
             </StyledUserInfoWrapper>
         )

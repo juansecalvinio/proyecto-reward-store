@@ -56,10 +56,10 @@ export const StyledUserPoints = styled.div`
     justify-content: center;
     margin-left: 0.6em;
     padding: 0.4em 0.5em 0.4em 1em;
+`;
 
-    img {
-        animation: ${flipCoin} 15s infinite;
-        animation-delay: 5s;
-        margin-left: 4px;
-    }
+export const StyledCoin = styled.img`
+    animation: ${flipCoin} 15s infinite;
+    animation-delay: 5s;
+    margin-left: 4px;
 `;
