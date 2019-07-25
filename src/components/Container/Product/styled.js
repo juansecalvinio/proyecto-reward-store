@@ -29,12 +29,11 @@ export const StyledProductWrapper = styled.div`
 
     &:hover {
         border: 1px solid rgba(21, 219, 255, .5);
-        transform: scale(1.025);
+        transform: scale(1.05);
     }
 
     &.selected {
-        box-shadow: 0 0 40px rgba(0,0,0,.4);
-        transform: scale(1.1);
+        box-shadow: 0 0 40px rgba(1, 1, 1,.4);
         border: 0;
     }
 `;

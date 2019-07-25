@@ -33,13 +33,16 @@ class Product extends Component {
     handleProductClick = (event) => {
         const { selected } = this.state;
         // Verifico que el click sea dentro del componente
-        if(this.node.contains(event.target)) {
+        if(this.node.contains(event.currentTarget)) {
             if(selected === true) {
                 this.setState({ selected: false });
             } else if(selected === false) {
                 this.setState({ selected: true });
             }
+            return;
         }
+        console.log('Fuera del click');
+        this.setState({ selected: false });
     }
 
     handleCloseClick = (event) => {
@@ -64,7 +67,7 @@ class Product extends Component {
                                 <div className="final">
                                     <span>{(user.points - data.cost)}</span>
                                     <StyledCoin />
-                                </div>                
+                                </div>
                             </OverlayBalanceContent>
                         </OverlayBalance>
                     </OverlayWrapper>
