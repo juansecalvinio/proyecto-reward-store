@@ -5,18 +5,14 @@ export const StyledProductWrapper = styled.div`
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 0 3px 4px rgba(0,0,0,.1);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between; 
+    cursor: pointer;    
+    height: 100%;     
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 20px;
     min-width: 200px;
     min-height: 200px;
     overflow: hidden;
-    padding: 10px;
     position: relative;
     transition: all .25s;
     text-align: left;
@@ -28,14 +24,20 @@ export const StyledProductWrapper = styled.div`
     }
 
     &:hover {
-        border: 1px solid rgba(21, 219, 255, .5);
-        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(21, 219, 255, .4);
     }
 
     &.selected {
         box-shadow: 0 0 40px rgba(1, 1, 1,.4);
         border: 0;
     }
+`;
+
+export const StyledProductContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
 `;
 
 export const StyledProductPoints = styled.div`
@@ -105,14 +107,11 @@ export const OverlayWrapper = styled.div`
     align-items: center;
     background-color: hsla(0,0%,64%,.9);
     border-radius: 3px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: center;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
     position: absolute;
     perspective: 500px;
     transition: all .25s;
