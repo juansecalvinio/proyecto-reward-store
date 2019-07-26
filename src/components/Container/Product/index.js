@@ -30,19 +30,26 @@ class Product extends Component {
         selected: false,
     }
 
-    handleProductClick = (event) => {
-        const { selected } = this.state;
-        // Verifico que el click sea dentro del componente
-        if(this.node.contains(event.currentTarget)) {
-            if(selected === true) {
-                this.setState({ selected: false });
-            } else if(selected === false) {
-                this.setState({ selected: true });
-            }
+    // Manejo el click dentro del componente
+    handleProductClick = () => {
+        if(this.state.selected === false) {
+            document.addEventListener('click', this.handleOutClick, false);
+        } else {
+            document.removeEventListener('click', this.handleOutClick, false);
+        }
+
+        this.setState(prevState => ({
+            selected: !prevState.selected,
+        }));
+    }
+
+    // Manejo un click de otro componente para cambiar el estado de este
+    handleOutClick = (event) => {
+        if(this.node.contains(event.target)) {
             return;
         }
-        console.log('Fuera del click');
-        this.setState({ selected: false });
+
+        this.handleProductClick();
     }
 
     handleCloseClick = (event) => {
@@ -53,7 +60,9 @@ class Product extends Component {
         const { data, user } = this.props;
         const { selected } = this.state;
         return (
-            <StyledProductWrapper ref={ node => this.node = node } className={selected ? "selected" : ""} onClick={this.handleProductClick}>
+            <StyledProductWrapper ref={ node => { this.node = node; } } 
+            className={ selected ? "selected" : "" }
+            onClick={this.handleProductClick}>
                 {selected && 
                     <OverlayWrapper>
                         <OverlayClose onClick={this.handleCloseClick}>
