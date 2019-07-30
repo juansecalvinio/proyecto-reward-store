@@ -105,7 +105,7 @@ export const StyledProductName = styled.span`
 
 export const OverlayWrapper = styled.div`
     align-items: center;
-    background-color: hsla(0,0%,64%,.9);
+    background-color: rgba(21, 219, 255, .9);
     border-radius: 3px;
     display: flex;
     flex-direction: column;
