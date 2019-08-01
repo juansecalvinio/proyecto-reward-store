@@ -169,7 +169,7 @@ export const OverlayBalanceContent = styled.div`
     }
 `;
 
-export const OverlayRedeemButton = styled.div`
+export const OverlayButton = styled.div`
     align-items: center;
     background-color: #fff;
     border-radius: 100px;
