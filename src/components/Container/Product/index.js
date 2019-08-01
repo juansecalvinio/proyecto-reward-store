@@ -4,7 +4,6 @@ import coin from '../../../img/icons/coin.svg';
 import close from '../../../img/icons/close.svg';
 
 import { connect } from 'react-redux';
-import { selectProduct, deselectProduct } from './../../../store';
 
 import { 
     StyledProductWrapper,
@@ -20,7 +19,7 @@ import {
     OverlayClose,
     OverlayBalance,
     OverlayBalanceContent,
-    OverlayRedeemButton,
+    OverlayButton,
 } from './styled';
 
 import { StyledCoin } from './../../Layout/Hero/Header/User/styled'
@@ -83,7 +82,8 @@ class Product extends Component {
                                         </div>
                                     </OverlayBalanceContent>
                                 </OverlayBalance>
-                                <OverlayRedeemButton onClick={this.handleRedeemClick}>Redeem Now</OverlayRedeemButton>
+                                <OverlayButton onClick={this.handleRedeemClick}>Redeem Now</OverlayButton>
+                                <OverlayButton>Details</OverlayButton>
                             </OverlayWrapper> }
                 <StyledProductContent>
                     {(data.cost &&
