@@ -4,8 +4,9 @@ import coin from '../../../img/icons/coin.svg';
 import close from '../../../img/icons/close.svg';
 
 import { connect } from 'react-redux';
+import { Link }  from 'react-router-dom';
 
-import { 
+import {
     StyledProductWrapper,
     StyledProductContent,
     StyledProductImg,
@@ -83,7 +84,7 @@ class Product extends Component {
                                     </OverlayBalanceContent>
                                 </OverlayBalance>
                                 <OverlayButton onClick={this.handleRedeemClick}>Redeem Now</OverlayButton>
-                                <OverlayButton>Details</OverlayButton>
+                                <Link to={`/product/${data._id}`}><OverlayButton>Details</OverlayButton></Link>
                             </OverlayWrapper> }
                 <StyledProductContent>
                     {(data.cost &&
