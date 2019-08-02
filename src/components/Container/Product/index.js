@@ -84,7 +84,7 @@ class Product extends Component {
                                     </OverlayBalanceContent>
                                 </OverlayBalance>
                                 <OverlayButton onClick={this.handleRedeemClick}>Redeem Now</OverlayButton>
-                                <Link to={`/product/${data._id}`}><OverlayButton>Details</OverlayButton></Link>
+                                <Link style={{textDecoration: 'none'}} to={`/product/${data._id}`}><OverlayButton>Details</OverlayButton></Link>
                             </OverlayWrapper> }
                 <StyledProductContent>
                     {(data.cost &&

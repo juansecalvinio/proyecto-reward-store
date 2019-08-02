@@ -177,11 +177,16 @@ export const OverlayButton = styled.div`
     cursor: pointer;
     display: flex;
     font-size: 20px;    
-    font-weight: 600;
+    font-weight: 500;
     justify-content: center;
-    padding: 5 12px;
+    margin: 5px;
+    padding: 5px 12px;
     transition: all .25s;
     text-align: center;
     user-select: none;
     transition: all .25s;
+
+    &:hover {
+        background-color: #eee;
+    }
 `;

@@ -16,7 +16,6 @@ import { getUserRequest } from './../../../../../store';
 class User extends Component {
 
     componentDidMount() {
-        console.log('Se montó User');
         const { getUser } = this.props;
         getUser();
     }

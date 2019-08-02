@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     error: null,
     loading: false,
     products: [],
+    product: {},
     user: {},
     history: [],
     points: '',
@@ -42,7 +43,23 @@ function appReducer(state = INITIAL_STATE, action) {
                 products,
                 loading: false,
             }
-        }        
+        }
+
+        case 'FETCH_PRODUCT_REQUEST': {
+            return {
+                ...state,
+                loading: true,
+            }
+        }
+
+        case 'FETCH_PRODUCT_SUCCESS': {
+            const { product } = action.payload;
+            return {
+                ...state,
+                product,
+                loading: false,
+            }
+        }
 
         case 'FETCH_USER_SUCCESS': {
             const { user } = action.payload;
@@ -93,7 +110,6 @@ function appReducer(state = INITIAL_STATE, action) {
 
 // THUNK
 const getProductsRequest = () => {
-    
     return async function(dispatch) {
         try {
             dispatch(fecthRequest());
@@ -103,7 +119,6 @@ const getProductsRequest = () => {
             dispatch(fecthFailure(error));
         }
     }
-    
 }
 
 const getUserRequest = () => {
@@ -111,8 +126,20 @@ const getUserRequest = () => {
         try {
             dispatch(fecthRequest());
             const user = await api.getUser();
-            console.log(user);
             dispatch(fetchUserSuccess(user));
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
+const getProductRequest = id => {
+    return async function(dispatch) {
+        try {
+            dispatch(fetchProductRequest());
+            const products = await api.getProducts();
+            const product = products.find(item => item._id === id);
+            dispatch(fetchProductSuccess(product));
         } catch (error) {
             dispatch(fecthFailure(error));
         }
@@ -209,6 +236,19 @@ const fecthFailure = error => {
     }
 }
 
+const fetchProductRequest = () => {
+    return {
+        type: 'FETCH_PRODUCT_REQUEST',
+    }
+}
+
+const fetchProductSuccess = product => {
+    return {
+        type: 'FETCH_PRODUCT_SUCCESS',
+        payload: { product },
+    }
+}
+
 const fecthProductsSuccess = products => {
     return {
         type: 'FETCH_PRODUCTS_SUCCESS',
@@ -256,6 +296,7 @@ export { store as default,
     getProductsRequest,
     getUserRequest,
     getHistoryRequest,
+    getProductRequest,
     addPointsRequest,
     activeHighest,
     activeLowest,
