@@ -158,12 +158,12 @@ const getHistoryRequest = () => {
     }
 }
 
-const addPointsRequest = (amount) => {
+const addPointsRequest = (value) => {
     return async function(dispatch) {
         try {
             dispatch(fecthRequest());
-            const user = await api.addPoints(amount);
-            dispatch(fetchUserSuccess(user))
+            const user = await api.addPoints(value);
+            dispatch(fetchUserSuccess(user));
         } catch (error) {
             dispatch(fecthFailure(error));
         }

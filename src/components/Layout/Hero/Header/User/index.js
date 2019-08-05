@@ -11,13 +11,19 @@ import {
 
 import coin from './../../../../../img/icons/coin.svg';
 
-import { getUserRequest } from './../../../../../store';
+import { getUserRequest, addPointsRequest } from './../../../../../store';
 
 class User extends Component {
 
     componentDidMount() {
-        const { getUser } = this.props;
+        const { getUser, user } = this.props;
         getUser();
+        console.log(user);
+    }
+
+    handleClickPoints = () => {
+        const { user, addPoints } = this.props;
+        addPoints(user.points);
     }
 
     render() {
@@ -25,7 +31,7 @@ class User extends Component {
         return (
             <StyledUserInfoWrapper>
                 <StyledUserName>{user.name}</StyledUserName>
-                <StyledUserPoints>
+                <StyledUserPoints onClick={this.handleClickPoints}>
                     {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
                     {user.points}
                     <StyledCoin src={coin} alt="coin" />
@@ -45,6 +51,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getUser: () => dispatch(getUserRequest()),
+        addPoints: value => dispatch(addPointsRequest(value)),
     }
 }
 

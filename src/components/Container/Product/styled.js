@@ -129,16 +129,6 @@ export const OverlayWrapper = styled.div`
     }
 `;
 
-export const OverlayClose = styled.div`
-    transition: all .25s;
-    position: absolute;
-    right: 15px;
-    top: 13.5px;
-    width: 15px;
-    height: 15px;
-    opacity: .8;
-`;
-
 export const OverlayBalance = styled.div`
     align-items: center;
     display: flex;

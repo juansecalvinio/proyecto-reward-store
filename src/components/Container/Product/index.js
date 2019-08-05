@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import coin from '../../../img/icons/coin.svg';
-import close from '../../../img/icons/close.svg';
 
 import { connect } from 'react-redux';
 import { Link }  from 'react-router-dom';
@@ -17,7 +16,6 @@ import {
     SpanPoints,
     DivImgCoin,
     OverlayWrapper,
-    OverlayClose,
     OverlayBalance,
     OverlayBalanceContent,
     OverlayButton,
@@ -53,10 +51,6 @@ class Product extends Component {
         this.handleProductClick();
     }
 
-    handleCloseClick = (event) => {
-        this.setState({ selected: false })
-    }
-
     handleRedeemClick = (event) => {
         console.log('Redeem now')
     }
@@ -69,9 +63,6 @@ class Product extends Component {
             className={ selected ? "selected" : "" }
             onClick={this.handleProductClick}>
                 {selected && <OverlayWrapper>
-                                <OverlayClose onClick={this.handleCloseClick}>
-                                    <img scr={close} alt='close' />
-                                </OverlayClose>
                                 <OverlayBalance>
                                     <OverlayBalanceContent>
                                         <span className="current">{user.points}</span>
