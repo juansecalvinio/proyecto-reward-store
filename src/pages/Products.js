@@ -12,12 +12,6 @@ class Products extends Component {
         if(!highestActive && !lowestActive) getProductItems();
     }
 
-    sorterProducts = () => {
-        const { productsItems, highestActive, lowestActive, getSorteredHighest, getSorteredLowest } = this.props;
-        if(highestActive) getSorteredHighest(productsItems);
-        if(lowestActive) getSorteredLowest(productsItems);
-    }
-
     render() {
         const { productItems, loading, error } = this.props;
 
