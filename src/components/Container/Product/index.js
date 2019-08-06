@@ -5,6 +5,8 @@ import coin from '../../../img/icons/coin.svg';
 import { connect } from 'react-redux';
 import { Link }  from 'react-router-dom';
 
+import { redeemProductRequest } from './../../../store';
+
 import {
     StyledProductWrapper,
     StyledProductContent,
@@ -52,14 +54,21 @@ class Product extends Component {
     }
 
     handleRedeemClick = (event) => {
-        console.log('Redeem now')
+        const { data, redeemProduct, redeem } = this.props;
+        if(this.state.selected) {
+            console.log(data);
+            this.setState({ selected: false });
+            redeemProduct(data._id);
+            console.log(redeem);
+        }
+        this.setState({ selected: true });    
     }
 
     render() {
         const { data, user } = this.props;
         const { selected } = this.state;
         return (
-            <StyledProductWrapper ref={ node => { this.node = node; } } 
+            <StyledProductWrapper ref={ wrapper => { this.node = wrapper; } } 
             className={ selected ? "selected" : "" }
             onClick={this.handleProductClick}>
                 {selected && <OverlayWrapper>
@@ -102,9 +111,17 @@ class Product extends Component {
 const mapStateToProps = state => {
     return {
         user: state.user,
+        redeem: state.redeem
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        redeemProduct: productId => dispatch(redeemProductRequest(productId)),
     }
 }
 
 export default connect(
     mapStateToProps,
+    mapDispatchToProps,
 )(Product);

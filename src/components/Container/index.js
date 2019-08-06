@@ -4,10 +4,6 @@ import { StyledContainer } from './styled';
 import Product from './Product';
 
 class Container extends Component {
-
-    componentDidMount() {
-        console.log(this.props);
-    }   
     
     render() {
         const { data, loading, error } = this.props;

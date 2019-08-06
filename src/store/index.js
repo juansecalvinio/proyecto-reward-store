@@ -3,16 +3,17 @@ import thunk from 'redux-thunk';
 import api from '../utils/api'
 
 const INITIAL_STATE = {
+    allActive: true,
     error: null,
+    history: [],
+    highestActive: false,
     loading: false,
+    lowestActive: false,
+    points: '',
     products: [],
     product: {},
+    redeem: {},
     user: {},
-    history: [],
-    points: '',
-    highestActive: false,
-    lowestActive: false,
-    allActive: true,
 }
 
 function appReducer(state = INITIAL_STATE, action) {
@@ -31,9 +32,6 @@ function appReducer(state = INITIAL_STATE, action) {
                 error,
                 loading: false,
             }
-        }
-        default: {
-            return state
         }
 
         case 'FETCH_PRODUCTS_SUCCESS': {
@@ -105,6 +103,30 @@ function appReducer(state = INITIAL_STATE, action) {
                 allActive: true,
             }
         }
+
+        case 'ADD_POINTS_SUCCESS': {
+            const { user } =  action.payload
+            return {
+                ...state,
+                user,
+                loading: false,
+            }
+        }
+
+        case 'REDEEM_PRODUCT_SUCCESS': {
+            const { redeem } = action.payload
+            return {
+                ...state,
+                redeem,
+                loading: false,
+            }
+        }
+
+        default: {
+            return {
+                ...state
+            }
+        }
     }
 }
 
@@ -163,7 +185,7 @@ const addPointsRequest = (value) => {
         try {
             dispatch(fecthRequest());
             const user = await api.addPoints(value);
-            dispatch(fetchUserSuccess(user));
+            dispatch(addPointsSuccess(user));
         } catch (error) {
             dispatch(fecthFailure(error));
         }
@@ -216,6 +238,18 @@ const sorterProductsLowest = (products) => {
         try {
             const productsSortered = api.getProductsLowerPrice(products);
             dispatch(fecthProductsSuccess(productsSortered));
+        } catch (error) {
+            dispatch(fecthFailure(error));
+        }
+    }
+}
+
+const redeemProductRequest = productId => {
+    return async function(dispatch) {
+        try {
+            dispatch(fecthRequest());
+            const redeem = await api.redeemProduct(productId);
+            dispatch(redeemProductSuccess(redeem)); 
         } catch (error) {
             dispatch(fecthFailure(error));
         }
@@ -288,6 +322,20 @@ const activeSorterAll = () => {
     }
 }
 
+const addPointsSuccess = user => {
+    return {
+        type: 'ADD_POINTS_SUCCESS',
+        payload: { user }
+    }
+}
+
+const redeemProductSuccess = redeem => {
+    return {
+        type: 'REDEEM_PRODUCT_SUCCESS',
+        payload: { redeem }
+    }
+}
+
 // MIDDLEWARE
 const middlewares = applyMiddleware(thunk);
 const store = createStore(appReducer, middlewares);
@@ -303,4 +351,5 @@ export { store as default,
     activeAll,
     sorterProductsHighest,
     sorterProductsLowest,
+    redeemProductRequest,
 };

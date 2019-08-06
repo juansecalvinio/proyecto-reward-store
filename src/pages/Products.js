@@ -7,7 +7,6 @@ import { getProductsRequest } from '../store';
 class Products extends Component {
 
     componentDidMount() {
-        console.log('Se montó Products');
         const { getProductItems, highestActive, lowestActive } = this.props;
         if(!highestActive && !lowestActive) getProductItems();
     }

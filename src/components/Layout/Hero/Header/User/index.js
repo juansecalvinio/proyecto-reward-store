@@ -16,14 +16,19 @@ import { getUserRequest, addPointsRequest } from './../../../../../store';
 class User extends Component {
 
     componentDidMount() {
-        const { getUser, user } = this.props;
+        const { getUser } = this.props;
         getUser();
-        console.log(user);
+    }
+
+    componentDidUpdate(prevProps) {
+        const { user, getUser } = this.props;
+        console.log(prevProps);
     }
 
     handleClickPoints = () => {
-        const { user, addPoints } = this.props;
+        const { user, addPoints, getUser } = this.props;
         addPoints(user.points);
+        getUser();
     }
 
     render() {
