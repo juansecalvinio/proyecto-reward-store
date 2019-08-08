@@ -6,11 +6,18 @@ import { getProductRequest } from '../store';
 
 const StyledContainer = styled.div`
     display: flex;
+    margin: 20px auto;
+    max-width: 1000px;
     padding: 20px;
     text-align: center;
 `;
 
-const StyledImage = styled.div``;
+// const StyledImage = styled.div``;
+
+// const StyledData = styled.div``;
+
+// const StyledButton  = styled.div``;
+
 
 class ProductDetail extends Component {
     
@@ -21,15 +28,11 @@ class ProductDetail extends Component {
     }
     
     render() {
-        const { img, name } = this.props.product;
+        const { name } = this.props.product;
         console.log(this.props.product);
         return (
             <StyledContainer>
-                <StyledImage>
-                    {img.hdUrl}
-                    {name}
-                    {/* <img src={img.hdUrl} alt={name} /> */}
-                </StyledImage>
+                {name}
             </StyledContainer>
         )
     }

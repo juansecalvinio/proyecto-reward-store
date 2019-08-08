@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { activeHighest, activeLowest, activeAll, sorterProductsHighest, sorterProductsLowest, getProductsRequest } from './../../../store';
+import { activeHighest, activeLowest, activeAll, sorterProductsHighest, sorterProductsLowest, getProductsRequest } from '../../../store';
 
 import { StyledSorterWrapper, StyledSorterLabel, StyledSorterCategories, StyledSorterCategory } from './styled';
 
