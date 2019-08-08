@@ -20,15 +20,9 @@ class User extends Component {
         getUser();
     }
 
-    componentDidUpdate(prevProps) {
-        const { user, getUser } = this.props;
-        console.log(prevProps);
-    }
-
     handleClickPoints = () => {
-        const { user, addPoints, getUser } = this.props;
+        const { user, addPoints } = this.props;
         addPoints(user.points);
-        getUser();
     }
 
     render() {
@@ -38,7 +32,7 @@ class User extends Component {
                 <StyledUserName>{user.name}</StyledUserName>
                 <StyledUserPoints onClick={this.handleClickPoints}>
                     {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
-                    {user.points}
+                    {!loading && user.points}
                     <StyledCoin src={coin} alt="coin" />
                 </StyledUserPoints>
             </StyledUserInfoWrapper>

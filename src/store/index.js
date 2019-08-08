@@ -105,10 +105,13 @@ function appReducer(state = INITIAL_STATE, action) {
         }
 
         case 'ADD_POINTS_SUCCESS': {
-            const { user } =  action.payload
+            const { points } =  action.payload
             return {
                 ...state,
-                user,
+                user: {
+                    ...state.user,
+                    'points': points,
+                },
                 loading: false,
             }
         }
@@ -184,8 +187,9 @@ const addPointsRequest = (value) => {
     return async function(dispatch) {
         try {
             dispatch(fecthRequest());
-            const user = await api.addPoints(value);
-            dispatch(addPointsSuccess(user));
+            const response = await api.addPoints(value);
+            const points = response['New Points'];
+            dispatch(addPointsSuccess(points));
         } catch (error) {
             dispatch(fecthFailure(error));
         }
@@ -322,10 +326,10 @@ const activeSorterAll = () => {
     }
 }
 
-const addPointsSuccess = user => {
+const addPointsSuccess = points => {
     return {
         type: 'ADD_POINTS_SUCCESS',
-        payload: { user }
+        payload: { points }
     }
 }
 

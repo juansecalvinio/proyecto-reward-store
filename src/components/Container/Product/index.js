@@ -5,8 +5,6 @@ import coin from '../../../img/icons/coin.svg';
 import { connect } from 'react-redux';
 import { Link }  from 'react-router-dom';
 
-import { redeemProductRequest } from './../../../store';
-
 import {
     StyledProductWrapper,
     StyledProductContent,
@@ -53,17 +51,6 @@ class Product extends Component {
         this.handleProductClick();
     }
 
-    handleRedeemClick = (event) => {
-        const { data, redeemProduct, redeem } = this.props;
-        if(this.state.selected) {
-            console.log(data);
-            this.setState({ selected: false });
-            redeemProduct(data._id);
-            console.log(redeem);
-        }
-        this.setState({ selected: true });    
-    }
-
     render() {
         const { data, user } = this.props;
         const { selected } = this.state;
@@ -83,7 +70,6 @@ class Product extends Component {
                                         </div>
                                     </OverlayBalanceContent>
                                 </OverlayBalance>
-                                <OverlayButton onClick={this.handleRedeemClick}>Redeem Now</OverlayButton>
                                 <Link style={{textDecoration: 'none'}} to={`/product/${data._id}`}><OverlayButton>Details</OverlayButton></Link>
                             </OverlayWrapper> }
                 <StyledProductContent>
@@ -115,13 +101,6 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        redeemProduct: productId => dispatch(redeemProductRequest(productId)),
-    }
-}
-
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
 )(Product);

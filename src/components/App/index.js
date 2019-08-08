@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-
 class App extends Component {
   render() {
     return (
