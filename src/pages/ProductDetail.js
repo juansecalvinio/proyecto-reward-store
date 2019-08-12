@@ -37,7 +37,7 @@ const StyledInfo = styled.div`
 `;
 
 const StyledPoints = styled.div`
-
+    
 `;
 
 const StyledButton = styled.div`
