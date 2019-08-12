@@ -13,6 +13,7 @@ class Products extends Component {
 
     render() {
         const { productItems, loading, error } = this.props;
+        console.log(productItems);
 
         return (
             <Container data={productItems} loading={loading} error={error} />            

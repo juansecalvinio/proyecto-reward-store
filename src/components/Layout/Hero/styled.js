@@ -6,6 +6,7 @@ export const StyledHeroWrapper = styled.div`
     background-size: cover;
     display: flex;
     flex-direction: column;
+    max-height: 300px;
 `;
 
 export const StyledHero = styled.div`

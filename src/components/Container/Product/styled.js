@@ -174,7 +174,6 @@ export const OverlayButton = styled.div`
     transition: all .25s;
     text-align: center;
     user-select: none;
-    transition: all .25s;
 
     &:hover {
         background-color: #eee;
