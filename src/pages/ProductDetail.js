@@ -6,7 +6,7 @@ import { StyledCoin } from './../components/Layout/Hero/Header/User/styled';
 import coin from './../img/icons/coin.svg';
 import Loader from 'react-loader-spinner';
 
-import { getProductRequest } from '../store';
+import { getProductRequest, redeemProductRequest, getUserRequest } from '../store';
 
 const StyledContainer = styled.div`
     margin: 20px auto;
@@ -82,6 +82,13 @@ class ProductDetail extends Component {
     objectNonEmpty = (obj) => {
         return Object.getOwnPropertyNames(obj).length >= 1;
     }
+
+    handleRedeemClick = () => {
+        const { id } = this.props.match.params;
+        const { getUser, redeemProduct } = this.props;
+        redeemProduct(id);
+        getUser();
+    }
     
     render() {
         const { loading, product } = this.props;
@@ -97,7 +104,7 @@ class ProductDetail extends Component {
                             <h2>{product.name}</h2>
                             <span></span>
                         </StyledPoints>
-                        <StyledButton>
+                        <StyledButton onClick={this.handleRedeemClick}>
                             {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
                             <button>Redeem <StyledCoin src={coin} alt="coin" /></button>                            
                         </StyledButton>
@@ -112,12 +119,15 @@ const mapStateToProps = state => {
     return {
         loading: state.loading,
         product: state.product,
+        redeem: state.product,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getProduct: (id) => dispatch(getProductRequest(id))
+        getProduct: (id) => dispatch(getProductRequest(id)),
+        redeemProduct: (id) => dispatch(redeemProductRequest(id)),
+        getUser: () => dispatch(getUserRequest()),
     }
 }
 

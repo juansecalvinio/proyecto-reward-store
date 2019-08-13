@@ -41,7 +41,6 @@ const api = {
   redeemProduct: async productId => {
     const redeemResponse = await fetch(baseUrl + 'redeem', fetchParams('POST', { productId: productId }))
     const redeem = await redeemResponse.json()
-    console.log(redeem);
     return redeem
   },
   getProducts: async () => {
