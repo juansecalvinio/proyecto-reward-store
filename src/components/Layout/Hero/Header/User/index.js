@@ -11,7 +11,7 @@ import {
 
 import coin from './../../../../../img/icons/coin.svg';
 
-import { getUserRequest, addPointsRequest } from './../../../../../store';
+import { getUserRequest, addPointsRequest, getHistoryRequest } from './../../../../../store';
 
 class User extends Component {
 
@@ -25,11 +25,17 @@ class User extends Component {
         addPoints(user.points);
     }
 
+    handleClickUser = () => {
+        const { getHistory } = this.props;
+        getHistory();
+    }
+
     render() {
-        const { user, loading } = this.props;
+        const { history, user, loading } = this.props;
+        console.log(history);
         return (
             <StyledUserInfoWrapper>
-                <StyledUserName>{user.name}</StyledUserName>
+                <StyledUserName onClick={this.handleClickUser}>{user.name}</StyledUserName>
                 <StyledUserPoints onClick={this.handleClickPoints}>
                     {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
                     {!loading && user.points}
@@ -44,6 +50,7 @@ const mapStateToProps = state => {
     return {
         user: state.user,
         loading: state.loading,
+        history: state.history,
     }
 }
 
@@ -51,6 +58,7 @@ const mapDispatchToProps = dispatch => {
     return {
         getUser: () => dispatch(getUserRequest()),
         addPoints: value => dispatch(addPointsRequest(value)),
+        getHistory: () => dispatch(getHistoryRequest()),
     }
 }
 
