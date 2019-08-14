@@ -37,7 +37,7 @@ class User extends Component {
             <StyledUserInfoWrapper>
                 <StyledUserName onClick={this.handleClickUser}>{user.name}</StyledUserName>
                 <StyledUserPoints onClick={this.handleClickPoints}>
-                    {loading && <Loader type="ThreeDots" color="#ffffff" height={18} width={18} />}
+                    {loading && <Loader type="ThreeDots" color="#ffffff" height={30} width={30} />}
                     {!loading && user.points}
                     <StyledCoin src={coin} alt="coin" />
                 </StyledUserPoints>

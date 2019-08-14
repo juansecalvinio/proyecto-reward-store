@@ -19,11 +19,15 @@ export const StyledHero = styled.div`
 `;
 
 export const StyledHeroTitle = styled.div`
-    color: #fff;
-    font-size: 4em;
-    font-weight: bold;
-    letter-spacing: -4px;
-    line-height: 1em;
     margin: 0.5em 0;
     padding: 10px;
+
+    a {
+        color: #fff;
+        font-size: 4em;
+        font-weight: bold;
+        letter-spacing: -4px;
+        line-height: 1em;
+        text-decoration: none;
+    }
 `;

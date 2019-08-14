@@ -36,6 +36,7 @@ class ProductDetail extends Component {
     
     render() {
         const { loading, product } = this.props;
+        console.log(product);
         return (
             <StyledContainer>
                 {(this.objectNonEmpty(product) && 
@@ -43,15 +44,15 @@ class ProductDetail extends Component {
                     <StyledImage>
                         {this.objectNonEmpty(product) && <img src={product.img.url} alt={product.name} />}
                     </StyledImage>
-                    <StyledInfo>
-                        <StyledPoints>
+                    <StyledInfo>                        
                             <h2>{product.name}</h2>
-                            <span></span>
-                        </StyledPoints>
+                            <StyledPoints>
+                                <span>{product.cost}</span>
+                                <StyledCoin src={coin} alt="coin" />
+                            </StyledPoints>
                         <StyledButton onClick={this.handleRedeemClick}>
                             <button>
-                                {(loading && <Loader type="ThreeDots" color="#ffffff" height={30} width={30} />) || 'Redeem'}  
-                                <StyledCoin src={coin} alt="coin" />
+                                {(loading && <Loader type="ThreeDots" color="#ffffff" height={30} width={30} />) || 'Redeem'}
                             </button>                            
                         </StyledButton>
                     </StyledInfo>
