@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const purchaseHistory = () => {
     const fade = keyframes`
@@ -14,32 +14,35 @@ const purchaseHistory = () => {
 }
 
 export const StyledContainer = styled.div`
+    animation: ${purchaseHistory} 0.3s;
     background: white;
-    position: absolute;
-    width: 80vw;
-    max-width: 340px;
-    z-index: 2;
-    right: 0;
-    top: 50px;
-    height: 310px;
-    overflow: scroll;
-    padding: 1em;
     border-radius: 3px;
     box-shadow: -1px 2px 7px 0px #00000014;
+    color: #616161;
+    font-size: 1em;
+    height: 310px;
+    max-width: 340px;
+    overflow: scroll;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 50px;
+    width: 80vw;
+    z-index: 1;
 `;
-// TODO -- falta hacer la animacion
 
 export const StyledHeader = styled.div`
-    height: 3em;
+    align-items: center;
     background: white;
     border-radius: 3px;
-    width: 100%;
     display: flex;
-    align-items: center;
+    height: 3em;
     justify-content: center;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
+    width: 100%;
     
     h3 {
       color: #D9D9D9;
@@ -48,11 +51,11 @@ export const StyledHeader = styled.div`
 `;
 
 export const StyledHistory = styled.div`
+    color: #616161;
+    font-size: 1em;
     height: 100%;
     overflow: scroll;
     padding-top: 1.8em;
-    color: #616161;
-    font-size: 1em;
     text-align: right;
 `;
 
