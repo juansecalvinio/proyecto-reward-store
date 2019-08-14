@@ -253,8 +253,8 @@ const redeemProductRequest = productId => {
         try {
             dispatch(fecthRequest());
             const redeem = await api.redeemProduct(productId);
-            console.log(redeem)
             dispatch(redeemProductSuccess(redeem));
+            dispatch(getUserRequest());
         } catch (error) {
             dispatch(fecthFailure(error));
         }
