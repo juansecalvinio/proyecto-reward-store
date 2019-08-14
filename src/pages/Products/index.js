@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import Container from '../components/Container';
-import { getProductsRequest } from '../store';
+import Container from './../../components/Container';
+import { getProductsRequest } from './../../store';
 
 class Products extends Component {
 

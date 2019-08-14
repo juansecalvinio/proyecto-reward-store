@@ -1,39 +1,41 @@
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
-margin: 20px auto;
-max-width: 1000px;
-padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
 `;
 
 export const StyledWrapper = styled.div`
-display: flex;
-flex-direction: row;
-text-align: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
 `;
 
 export const StyledImage = styled.div`
-flex: 1;
+    flex: 1;
 `;
 
 export const StyledInfo = styled.div`
-background: #ffffff;
-border: 1px solid rgba(21, 219, 255, 0.9);
-flex: 2;
+    background: #ffffff;
+    border: 1px solid rgba(21, 219, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    justify-content: space-between;
 
-h2 {
-    font-weight: 100;
-    letter-spacing: -2px;
-}
+    h2 {
+        font-weight: 700;
+        letter-spacing: -2px;
+    }
 `;
 
 export const StyledPoints = styled.div`
-
 `;
 
 export const StyledButton = styled.div`
-text-align: center;
-width: 100%;
+    text-align: center;
+    width: 100%;
 
 button {
     align-items: center;
@@ -45,7 +47,7 @@ button {
     cursor: pointer;
     display: flex;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 700;
     justify-content: center;
     justify-items: stretch;
     letter-spacing: 1px;
@@ -56,8 +58,7 @@ button {
     user-select: none;
 
     &:hover {
-        background-color: rgba(21, 219, 255, 0.9);
-        color: #cccccc;
+        background-color: rgba(21, 219, 255, 0.7);
     }
 }
 `;
