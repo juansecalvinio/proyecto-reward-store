@@ -6,34 +6,12 @@ const fadeInHistory = () => {
             opacity: 0;
             transform: translateY(10px);
         }
-        50% {
-            opacity: 0.5;
-            transform: translateY(5px);
-        }
         100% {
             opacity: 1;
             transform: translateY(0px);
         }
     `;
     return fadeIn;
-}
-
-const fadeOutHistory = () => {
-    const fadeOut = keyframes`
-        0% {
-            opacity: 1;
-            transform: translateY(0px);
-        }
-        50% {
-            opacity: 0.5;
-            transform: translateY(5px);
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-    `;
-    return fadeOut;
 }
 
 export const StyledContainer = styled.div`
@@ -44,7 +22,7 @@ export const StyledContainer = styled.div`
     color: #616161;
     font-size: 1em;
     height: 310px;
-    max-width: 340px;
+    max-width: 480px;
     overflow: scroll;
     padding: 1em;
     position: absolute;
