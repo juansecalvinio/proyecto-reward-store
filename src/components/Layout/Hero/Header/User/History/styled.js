@@ -1,20 +1,43 @@
 import styled, { keyframes } from 'styled-components';
 
-const purchaseHistory = () => {
-    const fade = keyframes`
+const fadeInHistory = () => {
+    const fadeIn = keyframes`
         0% {
             opacity: 0;
             transform: translateY(10px);
         }
+        50% {
+            opacity: 0.5;
+            transform: translateY(5px);
+        }
         100% {
-            opactiy: 1;
+            opacity: 1;
             transform: translateY(0px);
         }
     `;
+    return fadeIn;
+}
+
+const fadeOutHistory = () => {
+    const fadeOut = keyframes`
+        0% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        50% {
+            opacity: 0.5;
+            transform: translateY(5px);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+    `;
+    return fadeOut;
 }
 
 export const StyledContainer = styled.div`
-    animation: ${purchaseHistory} 0.3s;
+    animation: ${fadeInHistory} 0.3s;
     background: white;
     border-radius: 3px;
     box-shadow: -1px 2px 7px 0px #00000014;
@@ -25,11 +48,10 @@ export const StyledContainer = styled.div`
     overflow: scroll;
     padding: 1em;
     position: absolute;
-    right: 0;
     text-align: right;
     top: 50px;
     width: 80vw;
-    z-index: 1;
+    z-index: 2;
 `;
 
 export const StyledHeader = styled.div`
@@ -60,7 +82,19 @@ export const StyledHistory = styled.div`
 `;
 
 export const StyledRow = styled.div`
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     padding: 0.3em 0;
+
+    .historyProduct {
+        flex: 2;
+        text-align: left;
+    }
+    .historyDate {
+        flex: 1;
+        text-align: right;
+    }
+
 `;
 

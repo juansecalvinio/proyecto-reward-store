@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
+import History from './History';
 
 import { 
     StyledUserInfoWrapper, 
@@ -15,6 +16,10 @@ import { getUserRequest, addPointsRequest, getHistoryRequest } from './../../../
 
 class User extends Component {
 
+    state = {
+        showHistory: false,
+    }
+
     componentDidMount() {
         const { getUser } = this.props;
         getUser();
@@ -27,12 +32,14 @@ class User extends Component {
 
     handleClickUser = () => {
         const { getHistory } = this.props;
+        const { showHistory } = this.state;
         getHistory();
+        !showHistory ? this.setState({ showHistory: true }) : this.setState({ showHistory: false });
     }
 
     render() {
         const { history, user, loading } = this.props;
-        console.log(history);
+        const { showHistory } = this.state;
         return (
             <StyledUserInfoWrapper>
                 <StyledUserName onClick={this.handleClickUser}>{user.name}</StyledUserName>
@@ -41,7 +48,8 @@ class User extends Component {
                     {!loading && user.points}
                     <StyledCoin src={coin} alt="coin" />
                 </StyledUserPoints>
-            </StyledUserInfoWrapper>
+                {showHistory && <History history={history} />}
+            </StyledUserInfoWrapper>            
         )
     }    
 }
