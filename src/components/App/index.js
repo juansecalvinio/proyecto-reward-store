@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <GlobalStyle>
+          <GlobalStyle />
           <Provider store={store}>
             <Router>            
                 <Layout/>
@@ -22,7 +22,6 @@ class App extends Component {
                 </Switch>
             </Router>
           </Provider>
-        </GlobalStyle>
       </React.Fragment>
     )
   }
