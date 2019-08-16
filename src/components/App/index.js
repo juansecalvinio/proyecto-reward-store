@@ -10,19 +10,17 @@ import { GlobalStyle } from './styled';
 
 class App extends Component {
   render() {
-    return (
-      <React.Fragment>
-          <GlobalStyle />
-          <Provider store={store}>
-            <Router>            
-                <Layout/>
-                <Switch>
-                  <Route path="/" exact component={Products} />
-                  <Route path="/product/:id" component={ProductDetail} />
-                </Switch>
-            </Router>
-          </Provider>
-      </React.Fragment>
+    return (    
+      <Provider store={store}>
+        <Router>
+            <GlobalStyle />
+            <Layout/>
+            <Switch>
+              <Route path="/" exact component={Products} />
+              <Route path="/product/:id" component={ProductDetail} />
+            </Switch>
+        </Router>
+      </Provider>
     )
   }
 }
