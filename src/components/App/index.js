@@ -19,9 +19,11 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   render() {
     return (
+      <>
+      <GlobalStyle />
       <Provider store={store}>
         <Router>
-            <GlobalStyle />
+            
             <Layout/>
             <Switch>
               <Route path="/" exact component={Products} />
@@ -29,6 +31,7 @@ class App extends Component {
             </Switch>
         </Router>
       </Provider>
+      </>
     )
   }
 }
