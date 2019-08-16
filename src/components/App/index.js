@@ -12,8 +12,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-            <GlobalStyle />
+        <GlobalStyle />
+        <Router>            
             <Layout/>
             <Switch>
               <Route path="/" exact component={Products} />
