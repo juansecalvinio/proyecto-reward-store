@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "dayjs": "^1.8.15",
+    "gh-pages": "^2.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loader-spinner": "^2.3.0",
@@ -18,10 +19,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://juansecalvinio.github.io/proyecto-reward-store/",
   "eslintConfig": {
     "extends": "react-app"
   },
