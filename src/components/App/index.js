@@ -11,16 +11,19 @@ import { GlobalStyle } from './styled';
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <GlobalStyle />
-        <Router>            
-            <Layout/>
-            <Switch>
-              <Route path="/" exact component={Products} />
-              <Route path="/product/:id" component={ProductDetail} />
-            </Switch>
-        </Router>
-      </Provider>
+      <React.Fragment>
+        <GlobalStyle>
+          <Provider store={store}>
+            <Router>            
+                <Layout/>
+                <Switch>
+                  <Route path="/" exact component={Products} />
+                  <Route path="/product/:id" component={ProductDetail} />
+                </Switch>
+            </Router>
+          </Provider>
+        </GlobalStyle>
+      </React.Fragment>
     )
   }
 }
