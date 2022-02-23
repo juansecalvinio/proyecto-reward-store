@@ -15,7 +15,6 @@ export const StyledHero = styled.div`
     height: 40vh;
     justify-content: flex-start;
     margin: 0 2em;
-    width: 100%;
 `;
 
 export const StyledHeroTitle = styled.div`

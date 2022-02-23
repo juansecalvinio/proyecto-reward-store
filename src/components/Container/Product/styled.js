@@ -24,11 +24,11 @@ export const StyledProductWrapper = styled.div`
     }
 
     &:hover {
-        box-shadow: 0 0 20px rgba(21, 219, 255, .4);
+        border: 1px solid rgba(21, 219, 255, 1);
     }
 
     &.selected {
-        box-shadow: 0 0 40px rgba(1, 1, 1,.4);
+        box-shadow: 0 0 5px rgba(1, 1, 1,.4);
         border: 0;
     }
 `;
