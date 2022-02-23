@@ -36,7 +36,6 @@ class ProductDetail extends Component {
     
     render() {
         const { loading, product } = this.props;
-        console.log(product);
         return (
             <StyledContainer>
                 {(this.objectNonEmpty(product) && 

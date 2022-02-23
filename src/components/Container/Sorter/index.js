@@ -32,7 +32,6 @@ class Sorter extends Component {
         const { highestActive, lowestActive, allActive } = this.props;
         return (
             <StyledSorterWrapper>
-                <StyledSorterLabel>Sorted by:</StyledSorterLabel>
                 <StyledSorterCategories>
                     <StyledSorterCategory className={allActive ? "active" : ""} onClick={this.handleClickAll}>Show All</StyledSorterCategory>
                     <StyledSorterCategory className={highestActive ? "active" : ""} onClick={this.handleClickHighest}>Highest Price</StyledSorterCategory>

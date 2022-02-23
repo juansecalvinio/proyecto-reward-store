@@ -1,4 +1,4 @@
-const baseUrl = 'https://aerolab-challenge.now.sh/'
+const baseUrl = 'https://coding-challenge-api.aerolab.co/'
 
 const fetchParams = (method, data = '') => {
   const body = data ? { body: JSON.stringify(data) } : {}
@@ -14,8 +14,7 @@ const fetchParams = (method, data = '') => {
 const apiHeaders = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
-  Authorization:
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTBjOWIxNmU0OTYwMDAwNjBkMDBhNjgiLCJpYXQiOjE1MTA3NzU1NzR9.3RXwYx0ehfQKYZfZ2XRcDr-jbSwmZI50T1l921fbU4E',
+  Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmI1YjExMWI5NTIzZTAwMjA3ZTFmYzYiLCJpYXQiOjE2MDU3NDI4NjV9.2KSFLrgfqiMUMQb33XzYOdki3ee0cI7wGPRlG1x2M2c',
 }
 
 const api = {
